@@ -1,38 +1,71 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: column;
 }
-
-.App-link {
-  color: #61dafb;
+.graph {
+  height: 500px;
+  width: 500px;
+  border: solid 2px #000;
+  position: relative;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.graph::after {
+  content: "";
+  height: 100%;
+  width: 2px;
+  background: #000;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.graph::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #000;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.graph .force {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 50%;
+  width: 5px;
+  background: #f00;
+  z-index: 5;
+  transform-origin: bottom;
+}
+.graph .force::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 5px;
+  width: 30px;
+  background: #f00;
+  transform: translate(-100%, 0) rotate(-50deg);
+  transform-origin: top right;
+}
+.graph .force::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 5px;
+  width: 30px;
+  background: #f00;
+  transform: rotate(50deg);
+  transform-origin: top left;
+}
+.graph .force.resultant {
+  background: #0f0;
+}
+.graph .force.resultant::after, 
+.graph .force.resultant::before {
+  background: #0f0;
 }
