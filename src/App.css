@@ -6,6 +6,17 @@
   align-items: center;
   flex-direction: column;
 }
+.add {
+  width: auto;
+}
+.add form {
+  display: flex;
+  justify-content: space-between;
+  
+}
+.add form input {
+  width: 200px;
+}
 .graph {
   height: 500px;
   width: 500px;
@@ -39,6 +50,10 @@
   background: #f00;
   z-index: 5;
   transform-origin: bottom;
+  transition: .5s;
+}
+.graph .force:hover {
+  box-shadow: 0 0 10px 0 #000;
 }
 .graph .force::after {
   content: "";
@@ -68,4 +83,59 @@
 .graph .force.resultant::after, 
 .graph .force.resultant::before {
   background: #0f0;
+}
+.qs .popover {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  bottom: 42px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  display: none;
+  font-size: 12px;
+  font-family: 'Helvetica', sans-serif;
+  left: -95px;
+  padding: 7px 10px;
+  position: absolute;
+  height: 100px;
+  width: 200px;
+  z-index: 4;
+  transform: rotate(20deg);
+}
+.qs:hover .popover {
+  display: block;
+  animation: fade-in 0.3s linear 1, move-up 0.3s linear 1;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+ }
+  to {
+    opacity: 1;
+ }
+}
+@keyframes move-up {
+  from {
+    bottom: 30px;
+ }
+  to {
+    bottom: 42px;
+ }
+}
+.force-info > div {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(204, 204, 204, 0.521);
+  border: solid 1px #000;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.get {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-weight: 700;
 }
